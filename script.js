@@ -21,17 +21,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-   /* 2. MOBILE MENU LOGIC (Debug Version) */
+ /* 2. MOBILE MENU LOGIC - FORCE TOUCH */
 const menuToggle = document.querySelector('.menu-toggle');
 const mainNav = document.querySelector('.main-nav');
 
-console.log("Menu Toggle Found:", !!menuToggle); // Will say true/false in browser console
-console.log("Main Nav Found:", !!mainNav);
-
 if (menuToggle && mainNav) {
-    menuToggle.addEventListener('click', (e) => {
-        e.preventDefault(); // Prevents any weird browser jumping
-        console.log("Button was actually clicked!"); 
+    // We listen for both 'click' and 'touchstart' to ensure phones respond
+    const toggleMenu = (e) => {
+        e.preventDefault(); // Stop the browser from doing its own thing
+        e.stopPropagation(); // Stop the click from hitting layers behind the button
+        
         mainNav.classList.toggle('active');
         
         const icon = menuToggle.querySelector('i');
@@ -39,9 +38,13 @@ if (menuToggle && mainNav) {
             icon.classList.toggle('fa-bars');
             icon.classList.toggle('fa-times');
         }
-    });
-}
+        console.log("Menu state toggled");
+    };
 
+    menuToggle.addEventListener('click', toggleMenu);
+    // Adding touchstart can make it feel much faster on iPhones
+    menuToggle.addEventListener('touchstart', toggleMenu, {passive: false});
+}
 
     /* 3. LIGHTBOX (ZOOM) LOGIC */
     const lightbox = document.getElementById('lightbox');
