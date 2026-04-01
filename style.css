@@ -267,7 +267,10 @@ footer {
 
     /* When the menu has the 'active' class, slide it in */
     .main-nav.active {
-        right: 0;
+        right: 0 !important;
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
     .main-nav ul {
