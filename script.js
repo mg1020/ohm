@@ -1,4 +1,80 @@
-// Function to handle the intersection of elements
+document.addEventListener('DOMContentLoaded', () => {
+
+    /* 1. FADE-IN ON SCROLL LOGIC */
+    const observerOptions = {
+        threshold: 0.1 
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    // Select elements to animate
+    const fadeElements = document.querySelectorAll('.project-item, #about, #contact');
+    fadeElements.forEach(el => {
+        el.classList.add('fade-in'); 
+        observer.observe(el);
+    });
+
+
+    /* 2. MOBILE MENU LOGIC */
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    const navLinks = document.querySelectorAll('.main-nav a');
+
+    if (menuToggle && mainNav) {
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            
+            const icon = menuToggle.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            }
+        });
+
+        // Close menu when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            });
+        });
+    }
+
+
+    /* 3. LIGHTBOX (ZOOM) LOGIC */
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const projectImages = document.querySelectorAll('.project-image img');
+
+    if (lightbox && lightboxImg) {
+        projectImages.forEach(image => {
+            image.addEventListener('click', () => {
+                lightbox.style.display = 'block';
+                lightboxImg.src = image.src;
+                // Prevent background scrolling when zoomed
+                document.body.style.overflow = 'hidden'; 
+            });
+        });
+
+        // Close lightbox when clicking anywhere on the black background
+        lightbox.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+            // Bring back scrolling
+            document.body.style.overflow = 'auto'; 
+        });
+    }
+
+});// Function to handle the intersection of elements
 const observerOptions = {
     threshold: 0.2 // Trigger when 20% of the element is visible
 };
