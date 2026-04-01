@@ -1,5 +1,78 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- 1. MOBILE MENU LOGIC ---
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    const navLinks = document.querySelectorAll('.main-nav a');
+
+    if (menuToggle && mainNav) {
+        const handleMenu = (e) => {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            
+            mainNav.classList.toggle('active');
+            
+            const icon = menuToggle.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            }
+        };
+
+        // Attach to both click and touchend for maximum mobile compatibility
+        menuToggle.addEventListener('click', handleMenu);
+        menuToggle.addEventListener('touchend', handleMenu);
+
+        // Close menu when link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            });
+        });
+    }
+
+    // --- 2. LIGHTBOX (ZOOM) LOGIC ---
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const projectImages = document.querySelectorAll('.project-image img');
+
+    if (lightbox && lightboxImg) {
+        projectImages.forEach(image => {
+            image.addEventListener('click', (e) => {
+                e.stopPropagation();
+                lightbox.style.display = 'flex'; // Use flex to center
+                lightboxImg.src = image.src;
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close lightbox when clicking anywhere on it
+        lightbox.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+    }
+
+    // --- 3. FADE IN LOGIC ---
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.project-item, #about, #contact').forEach(el => {
+        el.classList.add('fade-in');
+        observer.observe(el);
+    });
+});document.addEventListener('DOMContentLoaded', () => {
+
     /* 1. FADE-IN ON SCROLL LOGIC */
     const observerOptions = {
         threshold: 0.1 
