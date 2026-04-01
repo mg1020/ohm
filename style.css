@@ -218,16 +218,55 @@ footer {
     font-size: 1.2rem;
 }
 
-
+/* 1. Desktop: Hide the toggle button */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-main);
+}
 /* --- Mobile --- */
 /* ... All your desktop styles above ... */
 
 @media (max-width: 768px) {
     /* Navigation - Hide it on mobile */
-    nav {
-        display: none;
+    
+.menu-toggle {
+        display: block; /* Show the button on mobile */
+        z-index: 1001;
     }
 
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Hide it off-screen to the right */
+        width: 70%;
+        height: 100vh;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.4s ease-in-out;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+    }
+
+    /* When the menu has the 'active' class, slide it in */
+    .main-nav.active {
+        right: 0;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        gap: 3rem;
+        text-align: center;
+    }
+    
+    .main-nav a {
+        font-size: 1.2rem;
+    }
+    
     /* Projects - Stack them vertically */
     .project-item, 
     .project-item:nth-of-type(even) {
