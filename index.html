@@ -1,15 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architect Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<header class="site-header">
-    <div class="container">
-        <div class="logo">
-            <a href="#">ARCHITECT NAME</a>
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">STUDIO.ARCH</a>
+            <nav>
+                <ul>
+                    <li><a href="#projects">Work</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Designed for Life.</h1>
+            <p>Architecture & Interior Design</p>
+        </div>
+    </section>
+
+    <div id="projects" class="section-title">Selected Projects</div>
+
+    <div class="project-item">
+        <div class="project-image">
+            <img src="img1.jpg" alt="Project 1">
+        </div>
+        <div class="project-info">
+            <h3>Project Title One</h3>
+            <p>Commentary for the first project goes here. Highlight the vision behind the structure.</p>
+        </div>
     </div>
-</header>
+
+    <div class="project-item">
+        <div class="project-image">
+            <img src="img2.jpg" alt="Project 2">
+        </div>
+        <div class="project-info">
+            <h3>Project Title Two</h3>
+            <p>Commentary for the second project goes here. Keep it elegant and professional.</p>
+        </div>
+    </div>
+
+    <section id="about">
+        <h2>Design Philosophy</h2>
+        <p>A short bio about your friend, his experience, and his unique approach to architectural design.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Get in Touch</h2>
+        <p style="margin-bottom: 2rem;">Interested in collaborating on a new project?</p>
+        <a href="mailto:hello@studio.com" class="contact-link">hello@studio.com</a>
+    </section>
+
+    <footer>
+        &copy; 2024 Architect Name. All rights reserved.
+    </footer>
+
+</body>
+</html>
