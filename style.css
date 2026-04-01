@@ -182,14 +182,15 @@ h2 {
 footer {
     padding: 4rem 2rem;
     text-align: center;
-    font-size: 0.8rem;
-    /*color: #999;
-    border-top: 1px solid #f0f0f0;*/
-    background-color: #333; /* Dark gray background */
-    color: #ffffff;         /* White text */
-    border-top: none;       /* Removes the thin line if it was there */
+    font-size: 0.85rem;
+    background-color: #333; /* Dark Gray */
+    color: #ffffff;         /* White Text */
+    line-height: 1.8;
 }
 
+footer p {
+    margin-bottom: 0.5rem;
+    color: #ffffff;
 .social-links {
     margin: 2rem 0;
     display: flex;
@@ -234,79 +235,74 @@ footer {
 /* ... All your desktop styles above ... */
 
 @media (max-width: 768px) {
-    /* Navigation - Hide it on mobile */
-    
-.menu-toggle {
+    /* Ensure Header is above Hero/Projects */
+    header {
+        z-index: 2000;
+        background: rgba(255, 255, 255, 0.95);
+    }
+
+    .menu-toggle {
         display: block !important;
         position: relative;
-        z-index: 1002; /* Higher than the nav and header */
+        z-index: 3000; /* Higher than the nav */
         background: none;
         border: none;
-        padding: 15px; /* Bigger tap target for thumbs */
-        cursor: pointer;
-    }
-    
-    header {
-        z-index: 1001;
+        font-size: 1.5rem;
+        padding: 10px;
     }
 
     .main-nav {
         position: fixed;
         top: 0;
-        right: -100%; /* Hidden to the right */
-        width: 100%;  /* Full width is easier for mobile */
+        right: -100%; /* Hidden off-screen */
+        width: 100%;  /* Take full screen width to be sure it shows */
         height: 100vh;
-        background-color: #ffffff !important; /* Solid white background */
-        display: flex;
+        background-color: #ffffff !important; 
+        display: flex !important; /* Force flex behavior */
         flex-direction: column;
         align-items: center;
         justify-content: center;
         transition: right 0.4s ease-in-out;
-        z-index: 9998; /* Just below the X button */
-        visibility: hidden; /* Prevent clicking hidden links */
+        z-index: 2500;
+        visibility: hidden;
     }
 
-    /* When the menu has the 'active' class, slide it in */
+    /* This is what the JS triggers */
     .main-nav.active {
         right: 0 !important;
         visibility: visible !important;
-        display: flex !important;
     }
+
     .main-nav ul {
         list-style: none;
-        padding: 0;
-        margin: 0;
         display: flex;
         flex-direction: column;
         gap: 3rem;
         text-align: center;
     }
-    
+
     .main-nav a {
         font-size: 1.5rem;
-        color: #000000;
+        color: #000;
         text-decoration: none;
         text-transform: uppercase;
         letter-spacing: 2px;
     }
-    
-    /* Projects - Stack them vertically */
+
+    /* Stack projects for mobile */
     .project-item, 
     .project-item:nth-of-type(even) {
         flex-direction: column !important;
-        gap: 2rem;
-        margin-bottom: 5rem;
-    }
-
-    /* About & Contact - Adjust padding for smaller screens */
-    #about, #contact {
-        padding: 5rem 1.5rem;
+        margin-bottom: 4rem;
+        gap: 1.5rem;
     }
 
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 }
+
+    
 /* Lightbox Styles */
 .lightbox {
     display: none; 
