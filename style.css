@@ -183,8 +183,11 @@ footer {
     padding: 4rem 2rem;
     text-align: center;
     font-size: 0.8rem;
-    color: #999;
-    border-top: 1px solid #f0f0f0;
+    /*color: #999;
+    border-top: 1px solid #f0f0f0;*/
+    background-color: #333; /* Dark gray background */
+    color: #ffffff;         /* White text */
+    border-top: none;       /* Removes the thin line if it was there */
 }
 
 .social-links {
