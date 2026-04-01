@@ -237,8 +237,17 @@ footer {
     /* Navigation - Hide it on mobile */
     
 .menu-toggle {
-        display: block; /* Show the button on mobile */
-        z-index: 1001;
+        display: block;
+        position: relative; /* Add this */
+        z-index: 9999;      /* Ensure it's on the very top layer */
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 10px;      /* Makes the hit-area larger for fingers */
+    }
+    
+    header {
+        z-index: 9998;      /* Keep header just below the button */
     }
 
     .main-nav {
