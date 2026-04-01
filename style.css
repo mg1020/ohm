@@ -187,6 +187,38 @@ footer {
     border-top: 1px solid #f0f0f0;
 }
 
+.social-links {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.social-icon {
+    font-size: 1.5rem;
+    color: #666; /* Subtle grey to match the architect vibe */
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+/* Hover Effects */
+.social-icon:hover {
+    color: #000; /* Turns black on hover */
+    transform: translateY(-3px);
+}
+
+/* Optional: WhatsApp green on hover */
+.social-icon.whatsapp:hover {
+    color: #25D366;
+}
+
+.contact-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+
 /* --- Mobile --- */
 /* ... All your desktop styles above ... */
 
