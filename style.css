@@ -196,4 +196,16 @@ footer {
     nav {
         display: none;
     }
+    /* Initial state: invisible and moved slightly down */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Final state: visible and in original position */
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 }
