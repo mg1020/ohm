@@ -21,34 +21,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    /* 2. MOBILE MENU LOGIC */
-    const menuToggle = document.querySelector('.menu-toggle');
-    const mainNav = document.querySelector('.main-nav');
-    const navLinks = document.querySelectorAll('.main-nav a');
+   /* 2. MOBILE MENU LOGIC (Debug Version) */
+const menuToggle = document.querySelector('.menu-toggle');
+const mainNav = document.querySelector('.main-nav');
 
-    if (menuToggle && mainNav) {
-        menuToggle.addEventListener('click', () => {
-            mainNav.classList.toggle('active');
-            
-            const icon = menuToggle.querySelector('i');
-            if (icon) {
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-times');
-            }
-        });
+console.log("Menu Toggle Found:", !!menuToggle); // Will say true/false in browser console
+console.log("Main Nav Found:", !!mainNav);
 
-        // Close menu when a link is clicked
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mainNav.classList.remove('active');
-                const icon = menuToggle.querySelector('i');
-                if (icon) {
-                    icon.classList.add('fa-bars');
-                    icon.classList.remove('fa-times');
-                }
-            });
-        });
-    }
+if (menuToggle && mainNav) {
+    menuToggle.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevents any weird browser jumping
+        console.log("Button was actually clicked!"); 
+        mainNav.classList.toggle('active');
+        
+        const icon = menuToggle.querySelector('i');
+        if (icon) {
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        }
+    });
+}
 
 
     /* 3. LIGHTBOX (ZOOM) LOGIC */
