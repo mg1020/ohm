@@ -116,7 +116,7 @@ header {
                justify-content: center; 
                gap: 3rem; 
                margin: 3rem 0; }
-.social-icon { font-size: 2,5rem; 
+.social-icon { font-size: 3rem; 
               color: #333; 
               text-decoration: none; 
               transition: transform 0.3s ease, color 0.3s ease; 
