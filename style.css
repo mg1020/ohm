@@ -39,7 +39,8 @@ header {
 .header-socials {
     display: flex;
     gap: 1.5rem;
-    margin-right: auto; /* Pushes everything else to the right */
+    /* margin-right: auto; Pushes everything else to the right */
+    flex: 1;
 }
 
 .header-socials a {
@@ -52,6 +53,37 @@ header {
 .header-socials a:hover {
     color: #000;
 }
+
+
+
+
+
+
+
+
+
+.logo {
+    flex: 2; /* Gives the logo more priority in the middle-left */
+    text-align: left; /* Keeps it closer to the icons than the button */
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: #000;
+    /* This creates the gap you want from the menu button */
+    margin-right: 2rem; 
+}
+
+.menu-toggle {
+    flex: 0; /* Keeps the button tight to the right edge */
+    display: none; /* Hidden on desktop */
+}
+
+
+
+
+
+
+
 
 
 /* --- Hero --- */
