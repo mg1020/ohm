@@ -235,119 +235,226 @@ footer p {
 /* ... All your desktop styles above ... */
 
 @media (max-width: 768px) {
-    /* Ensure Header is above Hero/Projects */
-    header {
-        z-index: 2000;
-        background: rgba(255, 255, 255, 0.95);
-    }
 
-    .menu-toggle {
-        display: block !important;
-        position: relative;
-        z-index: 3000; /* Higher than the nav */
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        padding: 10px;
-    }
-
-    .main-nav {
-        position: fixed;
-        top: 0;
-        right: -100%; /* Hidden off-screen */
-        width: 100%;  /* Take full screen width to be sure it shows */
-        height: 100vh;
-        background-color: #ffffff !important; 
-        display: flex !important; /* Force flex behavior */
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: right 0.4s ease-in-out;
-        z-index: 2500;
-        visibility: hidden;
-    }
-
-    /* This is what the JS triggers */
-    .main-nav.active {
-        right: 0 !important;
-        visibility: visible !important;
-    }
-
-    .main-nav ul {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 3rem;
-        text-align: center;
-    }
-
-    .main-nav a {
-        font-size: 1.5rem;
-        color: #000;
-        text-decoration: none;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-    }
-
-    /* Stack projects for mobile */
-    .project-item, 
-    .project-item:nth-of-type(even) {
-        flex-direction: column !important;
-        margin-bottom: 4rem;
-        gap: 1.5rem;
-    }
-
-    .hero-content h1 {
-        font-size: 2.2rem;
-    }
-}
+    /* Navigation - Hide it on mobile */
 
     
-/* Lightbox Styles */
-.lightbox {
-    display: none; 
-    position: fixed;
-    z-index: 9999; /* Higher than EVERYTHING else */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(8px);
-    cursor: zoom-out;
+
+.menu-toggle {
+
+        display: block !important;
+
+        position: relative;
+
+        z-index: 1002; /* Higher than the nav and header */
+
+        background: none;
+
+        border: none;
+
+        padding: 15px; /* Bigger tap target for thumbs */
+
+        cursor: pointer;
+
+    }
+
+    
+
+    header {
+
+        z-index: 1001;
+
+    }
+
+
+
+    .main-nav {
+
+        position: fixed;
+
+        top: 0;
+
+        right: -100%; /* Hide it off-screen to the right */
+
+        width: 70%;
+
+        height: 100vh;
+
+        background: #fff;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        transition: 0.4s ease-in-out;
+
+        box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+
+        z-index: 1000;
+
+    }
+
+
+
+    /* When the menu has the 'active' class, slide it in */
+
+    .main-nav.active {
+
+        right: 0;
+
+    }
+
+
+
+    .main-nav ul {
+
+        flex-direction: column;
+
+        gap: 3rem;
+
+        text-align: center;
+
+    }
+
+    
+
+    .main-nav a {
+
+        font-size: 1.2rem;
+
+    }
+
+    
+
+    /* Projects - Stack them vertically */
+
+    .project-item, 
+
+    .project-item:nth-of-type(even) {
+
+        flex-direction: column !important;
+
+        gap: 2rem;
+
+        margin-bottom: 5rem;
+
+    }
+
+
+
+    /* About & Contact - Adjust padding for smaller screens */
+
+    #about, #contact {
+
+        padding: 5rem 1.5rem;
+
+    }
+
+
+
+    .hero-content h1 {
+
+        font-size: 2.5rem;
+
+    }
+
 }
+
+/* Lightbox Styles */
+
+.lightbox {
+
+    display: none; 
+
+    position: fixed;
+
+    z-index: 9999; /* Higher than EVERYTHING else */
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.9);
+
+    backdrop-filter: blur(8px);
+
+    cursor: zoom-out;
+
+}
+
+
 
 .lightbox-content {
+
     margin: auto;
+
     display: block;
+
     width: 80%;
+
     max-width: 1000px;
+
     max-height: 80vh;
+
     object-fit: contain;
+
     position: absolute;
+
     top: 50%;
+
     left: 50%;
+
     transform: translate(-50%, -50%);
+
     animation: zoomIn 0.3s ease;
+
 }
+
+
 
 .close-lightbox {
+
     position: absolute;
+
     top: 30px;
+
     right: 30px;
+
     color: white;
+
     font-size: 50px; /* Make it big and easy to tap */
+
     font-weight: 300;
+
     cursor: pointer;
+
     z-index: 10000; /* Ensure it stays on top of the zoomed image */
+
 }
+
+
 
 @keyframes zoomIn {
+
     from { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+
     to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+
 }
 
+
+
 /* Make gallery images look clickable */
+
 .project-image img {
+
     cursor: zoom-in;
+
 }
+
