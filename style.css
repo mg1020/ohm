@@ -50,9 +50,9 @@ header {
     text-decoration: none;
 }
 
-.header-socials a:hover {
+/*.header-socials a:hover {
     color: #000;
-}
+}*/
 
 .social-icon.whatsapp:hover { color: #25D366; }
 .social-icon.facebook:hover { color: #1877F2; }
