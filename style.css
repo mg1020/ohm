@@ -64,7 +64,7 @@ header {
 
 .logo {
     flex: 2; /* Gives the logo more priority in the middle-left */
-    text-align: left; /* Keeps it closer to the icons than the button */
+    text-align: center; /* Keeps it closer to the icons than the button */
     font-weight: 700;
     letter-spacing: 2px;
     text-decoration: none;
