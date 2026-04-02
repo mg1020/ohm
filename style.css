@@ -115,6 +115,7 @@ header {
 .social-links { display: flex; justify-content: center; gap: 2rem; margin: 2rem 0; }
 .social-icon { font-size: 2rem; color: #333; text-decoration: none; transition: 0.3s; }
 .social-icon.whatsapp:hover { color: #25D366; }
+.social-icon.facebook:hover { color: #1877F2; }
 
 .contact-link { display: block; text-align: center; font-size: 1.2rem; color: #000; margin-bottom: 4rem; }
 
