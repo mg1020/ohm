@@ -109,7 +109,7 @@ header {
     background-repeat: no-repeat;
     
     /* THE TRANSPARENCY: Adjust this number (0.0 to 1.0) */
-    opacity: 0.15; /* Very subtle (10%) */
+    opacity: 0.2; /* Very subtle (10%) */
     
     z-index: 1; /* Puts the drawing layer at the back */
 }
