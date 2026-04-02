@@ -1,4 +1,76 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    // --- 1. MOBILE MENU LOGIC ---
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    const navLinks = document.querySelectorAll('.main-nav a');
+
+    if (menuToggle && mainNav) {
+        const toggleMenu = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            mainNav.classList.toggle('active');
+            
+            const icon = menuToggle.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            }
+        };
+
+        menuToggle.addEventListener('click', toggleMenu);
+        // Helps with instant response on mobile
+        menuToggle.addEventListener('touchstart', toggleMenu, {passive: false});
+
+        // Close menu when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            });
+        });
+    }
+
+    // --- 2. LIGHTBOX (ZOOM) LOGIC ---
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const projectImages = document.querySelectorAll('.project-image img');
+
+    if (lightbox && lightboxImg) {
+        projectImages.forEach(img => {
+            img.addEventListener('click', () => {
+                // This 'flex' is what centers the image!
+                lightbox.style.display = 'flex'; 
+                lightboxImg.src = img.src;
+                document.body.style.overflow = 'hidden'; 
+            });
+        });
+
+        lightbox.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto'; 
+        });
+    }
+
+    // --- 3. FADE-IN ON SCROLL LOGIC ---
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.project-item, #about, #contact').forEach(el => {
+        el.classList.add('fade-in');
+        observer.observe(el);
+    });
+});document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.menu-toggle');
     const mainNav = document.querySelector('.main-nav');
     const navLinks = document.querySelectorAll('.main-nav a');
