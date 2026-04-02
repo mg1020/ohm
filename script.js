@@ -76,23 +76,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxImg = document.getElementById('lightbox-img');
     const projectImages = document.querySelectorAll('.project-image img');
 
-    if (lightbox && lightboxImg) {
-        projectImages.forEach(image => {
-            image.addEventListener('click', (e) => {
-                e.stopPropagation();
-                lightbox.style.display = 'flex'; // Use flex to center
-                lightboxImg.src = image.src;
-                document.body.style.overflow = 'hidden';
-            });
+   // Lightbox Logic
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    
+    document.querySelectorAll('.project-image img').forEach(img => {
+        img.addEventListener('click', () => {
+            // CRITICAL: Change this to 'flex' so the CSS centering works
+            lightbox.style.display = 'flex'; 
+            lightboxImg.src = img.src;
+            document.body.style.overflow = 'hidden'; // Stop background scroll
         });
+    });
 
-        // Close lightbox when clicking anywhere on it
-        lightbox.addEventListener('click', () => {
-            lightbox.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-    }
-
+    lightbox.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Resume scroll
+    });
     // --- 3. FADE IN LOGIC ---
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
