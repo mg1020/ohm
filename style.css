@@ -112,8 +112,18 @@ header {
 .project-info h3 { margin-bottom: 1rem; font-weight: 400; font-size: 1.5rem; }
 
 /* --- Socials & Contact --- */
-.social-links { display: flex; justify-content: center; gap: 2rem; margin: 2rem 0; }
-.social-icon { font-size: 2rem; color: #333; text-decoration: none; transition: 0.3s; }
+.social-links { display: flex; 
+               justify-content: center; 
+               gap: 3rem; 
+               margin: 3rem 0; }
+.social-icon { font-size: 2,5rem; 
+              color: #333; 
+              text-decoration: none; 
+              transition: transform 0.3s ease, color 0.3s ease; 
+             }
+.social-icon:hover {
+    transform: translateY(-5px); /* Subtle lift effect when hovering */
+}
 .social-icon.whatsapp:hover { color: #25D366; }
 .social-icon.facebook:hover { color: #1877F2; }
 
