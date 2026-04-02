@@ -76,57 +76,74 @@ footer { background: #333; color: #fff; padding: 3rem 2rem; text-align: center; 
 
 /* --- MOBILE STYLES --- */
 @media (max-width: 768px) {
-    /* Move the button to the left */
+    /* Keep logo left, button right */
     .nav-container {
-        flex-direction: row-reverse; /* Flips the logo and button positions */
-        justify-content: flex-end;
-        gap: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
     }
 
     .menu-toggle {
-        display: block;
-        z-index: 3000;
-        margin-right: auto; /* Pushes the logo to the right */
+        display: block !important;
+        z-index: 3000; /* Stays above the sidebar */
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #000;
     }
 
+    /* The Sidebar Menu */
     .main-nav {
         position: fixed;
         top: 0;
-        left: -100%; /* Start hidden off-screen to the LEFT */
-        width: 250px; /* Smaller, fixed width */
+        right: -260px; /* Hidden off-screen to the RIGHT */
+        width: 250px;  /* Narrow sidebar width */
         height: 100vh;
         background: #ffffff;
         z-index: 2500;
-        transition: 0.4s ease-in-out;
+        transition: right 0.4s ease-in-out;
         display: flex !important;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
     }
 
-    /* Slide in from the left */
+    /* Slide in from the right */
     .main-nav.active {
-        left: 0;
+        right: 0 !important;
     }
 
     .main-nav ul {
         flex-direction: column;
-        text-align: left;
-        gap: 2rem;
-        padding-left: 2rem;
+        text-align: center;
+        gap: 2.5rem;
+        padding: 0;
     }
 
     .main-nav a {
         font-size: 1.2rem;
         color: #000;
-        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
 
-    /* Keeping the project stack fix from before */
+    /* Fix the "squeezed" project layout */
     .project-item, .project-item:nth-of-type(even) {
         flex-direction: column;
         gap: 1.5rem;
         padding: 0 1.5rem;
+        margin-bottom: 4rem;
     }
-    .project-image, .project-info { width: 100%; flex: none; }
+
+    .project-image, .project-info { 
+        width: 100%; 
+        flex: none; 
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
 }
