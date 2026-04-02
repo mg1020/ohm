@@ -38,14 +38,14 @@ header {
 /* Header Socials Styling */
 .header-socials {
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem;
     /* margin-right: auto; Pushes everything else to the right */
     flex: 1;
 }
 
 .header-socials a {
     color: #333;
-    font-size: 1.8rem;
+    font-size: 2rem;
     transition: 0.3s;
     text-decoration: none;
 }
