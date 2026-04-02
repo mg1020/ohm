@@ -105,7 +105,7 @@ header {
     /* Apply the image */
     background-image: url('background_arch.png');
     background-size: cover; /* Ensures the drawing fills the space */
-    background-position: center 30%; /* Centers the key part of the arc */
+    background-position: center 20%; /* Centers the key part of the arc */
     background-repeat: no-repeat;
     
     /* THE TRANSPARENCY: Adjust this number (0.0 to 1.0) */
