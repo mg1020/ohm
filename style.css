@@ -66,6 +66,40 @@ header {
 
 .contact-link { display: block; text-align: center; font-size: 1.2rem; color: #000; margin-bottom: 4rem; }
 
+/* --- About & Contact Centering --- */
+#about, #contact {
+    max-width: 800px;    /* Keeps text from spreading too wide on desktop */
+    margin: 0 auto;      /* Centers the container itself */
+    padding: 8rem 2rem;  /* Large gap between projects and footer */
+    text-align: center;  /* Centers all text, titles, and buttons */
+    font-family: 'Inter', sans-serif; /* Ensures the font carries over */
+}
+
+#about h2, #contact h2 {
+    font-weight: 300;    /* Light, architectural feel */
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+#about p, #contact p {
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+/* Fix the Email Link specifically */
+.contact-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #000;
+    border-bottom: 1px solid #000; /* Sophisticated underline */
+    padding-bottom: 5px;
+}
+
 /* --- Footer --- */
 footer { background: #333; color: #fff; padding: 3rem 2rem; text-align: center; font-size: 0.8rem; }
 
