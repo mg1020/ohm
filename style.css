@@ -207,18 +207,32 @@ footer { background: #333; color: #fff; padding: 3rem 2rem; text-align: center; 
         justify-content: space-between;
         align-items: center;
         width: 100%;
+        /* added last 9:04*/
+        padding: 1rem 1.5rem;
+        gap: 0;
+        /* delete untill here if needed */
     }
 
     .header-socials {
         gap: 1rem;
+         /* added last 9:04*/
+        flex: 0; /* Don't grow on mobile */
+        margin-right: 1.5rem;
+        /* delete untill here if needed */
     }
     
     .header-socials a {
-        font-size: 1.2rem; /* Slightly larger for touch on mobile */
+        font-size: 1.3rem; /* Slightly larger for touch on mobile */
     }
 
     .logo {
         font-size: 0.9rem; /* Shrink logo slightly to fit icons on small phones */
+         /* added last 9:04*/
+        flex: 1;
+        margin-right: auto; /* Pushes the menu button to the far right */
+        font-size: 1rem;
+        white-space: nowrap;
+        /* delete untill here if needed */
     }
 
     
@@ -230,6 +244,9 @@ footer { background: #333; color: #fff; padding: 3rem 2rem; text-align: center; 
         font-size: 1.5rem;
         cursor: pointer;
         color: #000;
+         /* added last 9:04*/
+        padding-left: 1rem;
+        /* delete untill here if needed */
     }
 
     /* The Sidebar Menu */
