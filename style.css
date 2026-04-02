@@ -54,8 +54,8 @@ header {
     color: #000;
 }*/
 
-.social-icon.whatsapp:hover { color: #25D366; }
-.social-icon.facebook:hover { color: #1877F2; }
+.social-icon.whatsapp { color: #25D366; }
+.social-icon.facebook { color: #1877F2; }
 
 
 
